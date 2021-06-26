@@ -1,49 +1,33 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:z_face_detection/FacePainter.dart';
 
-class ImagesDetected extends StatefulWidget {
+class Home extends StatelessWidget {
   final ui.Image image;
-  final List<Face> faces;
-  ImagesDetected({required this.image, required this.faces});
-  final List<Rect> rect = [];
-  @override
-  _ImagesDetectedState createState() => _ImagesDetectedState();
-}
-
-class _ImagesDetectedState extends State<ImagesDetected> {
-  @override
-  void initState() {
-    for (Face detectedFace in widget.faces) {
-      faceCoordinates(detectedFace);
-    }
-    super.initState();
-  }
+  final List<Rect> rect;
+  Home({required this.image, required this.rect});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FittedBox(
-        child: SizedBox(
-          height: widget.image.height.toDouble(),
-          width: widget.image.width.toDouble(),
-          child: CustomPaint(
-              painter: FacePainter(imageFile: widget.image, rect: widget.rect)),
+      body: Center(
+        child: FittedBox(
+          child: SizedBox(
+            height: image.height.toDouble(),
+            width: image.width.toDouble(),
+            child: CustomPaint(
+              painter: FacePainter(imageFile: image, rect: rect),
+            ),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pop(context);
         },
-        child: Text('Image'),
+        child: Text('Get Image'),
       ),
     );
-  }
-
-  void faceCoordinates(Face face) {
-    //  final pos = face.boundingBox;
-    widget.rect.add(face.boundingBox);
   }
 }

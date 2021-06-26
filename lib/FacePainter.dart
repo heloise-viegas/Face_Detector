@@ -16,7 +16,7 @@ class FacePainter extends CustomPainter {
         rectangle,
         Paint()
           ..color = Colors.teal
-          ..strokeWidth = 6.0
+          ..strokeWidth = 7.0
           ..style = PaintingStyle.stroke,
       );
     }
