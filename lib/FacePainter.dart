@@ -1,9 +1,15 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class FacePainter extends CustomPainter {
   var imageFile;
   late List<Rect> rect;
-  FacePainter({required this.imageFile, required this.rect});
+  // late List<Offset> countours;
+  FacePainter({
+    required this.imageFile,
+    required this.rect,
+  }); // required this.countours
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -20,6 +26,12 @@ class FacePainter extends CustomPainter {
           ..style = PaintingStyle.stroke,
       );
     }
+
+    // final lipPaint = Paint()
+    //   ..strokeWidth = 3.0
+    //   ..color = Colors.pink;
+    //
+    // canvas.drawPoints(PointMode.polygon, countours, lipPaint);
   }
 
   @override
