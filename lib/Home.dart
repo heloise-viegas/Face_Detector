@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
+        child: Stack(
           children: [
             FittedBox(
               child: SizedBox(
@@ -38,9 +38,18 @@ class Home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(feelings.isSmiling == true ? 'Smiling' : 'Not Smiling'),
-                Text(feelings.isLeyeOpen == true ? 'L open' : 'L Closed'),
-                Text(feelings.isReyeOpen == true ? 'R open' : 'R closed'),
+                Text(
+                  feelings.isSmiling == true ? 'Smiling' : 'Not Smiling',
+                  style: TextStyle(color: Colors.teal[300], fontSize: 30.0),
+                ),
+                Text(
+                  feelings.isLeyeOpen == true ? 'L open' : 'L Closed',
+                  style: TextStyle(color: Colors.teal[300], fontSize: 30.0),
+                ),
+                Text(
+                  feelings.isReyeOpen == true ? 'R open' : 'R Closed',
+                  style: TextStyle(color: Colors.teal[300], fontSize: 30.0),
+                ),
               ],
             ),
           ],
